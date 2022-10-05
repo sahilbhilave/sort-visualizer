@@ -1,5 +1,5 @@
 import React from "react";
-import {start,reset,changeInputSize,changeDelayTime,createBars} from './Host';
+import {start,reset,changeInputSize,changeDelayTime,createBars,changeSort} from './Host';
 
 export default function Header() {
     sessionStorage.setItem("delayInMs", 50);
@@ -11,11 +11,10 @@ export default function Header() {
 
                     <div className="selector">
                     <label for="algo">Algorithm : </label>
-                    <select name="algo" id="algo" onchange="changeSort()">
+                    <select name="algo" id="algo" onchange={changeSort}>
                         <option value="sel">Selection Sort</option>
                         <option value="ins">Insertion Sort</option>
                         <option value="bub">Bubble Sort</option>
-                        {/* <option value="qui">Quick Sort</option> */}
                     </select>
                     </div>
 
@@ -26,7 +25,7 @@ export default function Header() {
 
                     <div className="slider">
                     <p>Execution Speed</p>
-                    <input type="range" id="speed"  onChange={changeDelayTime}  min="1" max="100" ></input>
+                    <input type="range" id="speed"  onChange={changeDelayTime}   min="1" max="100" ></input>
                     </div>
                 </div>
 
